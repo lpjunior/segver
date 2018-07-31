@@ -13,7 +13,7 @@
 
         <div>
             <h3>Exemplos de soluções para proteção SQL Injection em PHP</h3>
-            <div>
+            <div id="addslashes">
                 <p><strong><em>Addslashes</em></strong> - <em>Adiciona</em> barras invertidas a uma string</p>
                 <code>
                     <span style="color: blue">string</span> 
@@ -25,8 +25,21 @@
                 <br><strong>ex.:</strong> Sant'anna
                 <br><strong>convertido:</strong> Sant'\anna'</p>
             </div>
-            <div>
+            <div id="preg_replace">
                 <p><strong>preg_replace</strong> - <em>Realiza</em> uma pesquisa por uma expressão regular e a substitui</p>
+                <code>
+                    <strong>$login</strong> = 
+                    preg_replace(<span style="color: blue">'/[^[:alpha:]_]/'</span>, '', 
+                    <strong>$login</strong>);
+                </code>
+                <p><br><strong><em>[:alpha:]</em></strong> - é a mesma coisa que [a-zA-Z], 
+                <br>portanto não são permitidos símbolos nem o (_), evitando aquele comando clássico utilizado nos 
+                <br>logins como: or ‘ 1=’1 além de todos outros possíveis utilizando caracteres especiais e números.
+                <p><br><strong><em>[:alnum:]</em></strong> - Deixando apenas letras e números na variável
+                <br>limpa os caracteres especiais deixando apenas as letras e números. É a mesma coisa que [a-zA-Z0-9]</p>
+            </div>
+            <div id="pdo_prepare">
+                <p><em>PDO</em><strong>prepare</strong> - <em>Realiza</em> uma pesquisa por uma expressão regular e a substitui</p>
                 <code>
                     <strong>$login</strong> = 
                     preg_replace(<span style="color: blue">'/[^[:alpha:]_]/'</span>, '', 
